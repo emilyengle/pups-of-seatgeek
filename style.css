@@ -1,0 +1,88 @@
+body {
+  background-color: #62D9FF;
+  font-family: 'Montserrat';
+  color: white;
+  text-align: center;
+}
+
+.main {
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.header > h1 {
+  margin: 0.33em 0.33em 0.33em 0.33em;
+  font-size: 4em;
+}
+
+.header > img {
+  max-height: 4em;
+}
+
+.subHeader {
+  font-size: 1.5em;
+}
+
+.subHeader > p {
+  margin: 5px;
+}
+
+.picker {
+  max-height: 65%;
+  margin: 40px 40px 20px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: top;
+}
+
+.picker > .catImage {
+  font-size: 2em;
+}
+
+.picker > .contenders {
+  margin: 0 50px 0 50px;
+}
+
+.picker > .contenders-16 > h3 {
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.picker > .contenders > h3 {
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.picker > .contenders-16 > p {
+  font-size: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.picker > .contenders > p {
+  font-size: 1.6em;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.picker > .catImage > img {
+  margin: 0 50px 0 50px;
+  outline: solid 2px white;
+}
+
+@media only screen and (min-width: 767px) {
+  .catImage > img {
+    width: 350px;
+  }
+}
+
+/* TODO size images on smaller screens */
