@@ -75,6 +75,7 @@ body {
 }
 
 .picker > .dogImage > img {
+  cursor: pointer;
   margin: 0 50px 0 50px;
   outline: solid 2px white;
 }

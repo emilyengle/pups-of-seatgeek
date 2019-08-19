@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DogImage from './DogImage';
 import Contenders from './Contenders';
+import axios from 'axios';
 
 class Picker extends Component {
   constructor(props) {
@@ -47,6 +48,8 @@ class Picker extends Component {
 
   handleEliteEight(dog) {
     this.state.eliteEight.push(dog);
+    axios.post(`/api/dogs/${dog['id']}/elite-eight`, {id: dog['id']});
+
     const dogIndex = this.state.dogs.indexOf(dog);
     if (dogIndex < 14) {
       this.setState({
@@ -66,6 +69,8 @@ class Picker extends Component {
 
   handleFinalFour(dog) {
     this.state.finalFour.push(dog);
+    axios.post(`/api/dogs/${dog['id']}/final-four`, {id: dog['id']});
+
     const dogIndex = this.state.eliteEight.indexOf(dog);
     if (dogIndex < 6) {
       this.setState({
@@ -85,6 +90,8 @@ class Picker extends Component {
 
   handleChampionship(dog) {
     this.state.championship.push(dog);
+    axios.post(`/api/dogs/${dog['id']}/championship`, {id: dog['id']});
+
     const dogIndex = this.state.finalFour.indexOf(dog);
     if (dogIndex < 2) {
       this.setState({
@@ -101,6 +108,7 @@ class Picker extends Component {
   }
 
   handleWinner(dog) {
+    axios.post(`/api/dogs/${dog['id']}/winner`, {id: dog['id']});
     this.setState({
       contenders: [dog]
     });
