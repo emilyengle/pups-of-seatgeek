@@ -25,21 +25,6 @@ class HomePage extends Component {
     });
   }
 
-  // renderDogs() {
-  //   if (this.state.dataLoaded) {
-  //     return this.state.dogs.map(dog => {
-  //       return (
-  //         <div key={dog.id}>
-  //           <p>{dog.name}</p>
-  //           <p>{dog.breed}</p>
-  //         </div>
-  //       );
-  //     })
-  //   } else {
-  //     return (<p>Loading...</p>);
-  //   }
-  // }
-
   render() {
     return (
       <div className="main">
@@ -51,7 +36,7 @@ class HomePage extends Component {
           <p>Choose the superior dog of SeatGeek, March Madness tournament-style.</p>
           <p>Click a picture below to choose your favorite!</p>
         </div>
-        <Picker />
+        {this.state.dataLoaded ? <Picker dogs={this.state.dogs} /> : null}
       </div>
     );
   }

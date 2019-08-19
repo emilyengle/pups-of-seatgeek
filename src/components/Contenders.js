@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {imgList} from './utils';
 
 class Contenders extends Component {
   render() {
@@ -16,7 +15,11 @@ class Contenders extends Component {
       title = "And your winner is:";
     }
 
-    const contenders = list.map(key => <p key={key}>{imgList[key][0]}</p>);
+    let contenders = list.map(contender => {
+      return (
+        <p key={contender['id']}>{contender['name']}</p>
+      );
+    });
 
     return (
       <div className={list.length === 16 ? 'contenders-16' : 'contenders'}>

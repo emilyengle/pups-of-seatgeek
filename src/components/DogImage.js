@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import {imgList} from './utils';
 
 class DogImage extends Component {
   constructor(props) {
       super(props);
+
+      const {dog} = props;
       this.state = {
-         img: imgList[this.props.img][1],
-         imgName: imgList[props.img][0]
+         img: dog['pic'],
+         imgName: dog['name']
       };
   }
 
   componentDidUpdate(oldProps) {
-    if (oldProps.img !== this.props.img) {
+    if (oldProps.dog['id'] !== this.props.dog['id']) {
       this.setState({
-        img: imgList[this.props.img][1],
-        imgName: imgList[this.props.img][0]
+        img: this.props.dog['pic'],
+        imgName: this.props.dog['name']
       });
     }
   }
@@ -22,7 +23,7 @@ class DogImage extends Component {
   render() {
     return (
       <div className="dogImage">
-        <img src={this.state.img} onClick={() => this.props.onClick(this.props.img)} />
+        <img src={this.state.img} onClick={() => this.props.onClick(this.props.dog)} />
         <p><b>{this.state.imgName}</b></p>
       </div>
     )
