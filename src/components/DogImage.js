@@ -21,10 +21,16 @@ class DogImage extends Component {
   }
 
   render() {
+    const {dog} = this.props;
+    const instaHandle = dog['insta'];
+    const instaUrl = 'https://instagram.com/' + instaHandle;
+
     return (
       <div className="dogImage">
-        <img src={this.state.img} onClick={() => this.props.onClick(this.props.dog)} />
-        <p><b>{this.state.imgName}</b></p>
+        <img src={this.state.img} onClick={() => this.props.onClick(dog)} />
+        <h4><b>{this.state.imgName}</b></h4>
+        <p>🍼 proud parent: {dog['owner']}</p>
+        {dog['insta'] && <p>📸 insta: <a href={instaUrl} target="_blank">{'@' + instaHandle}</a></p>}
       </div>
     )
   }

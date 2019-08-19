@@ -31,6 +31,7 @@ class HomePage extends Component {
         <div className="header">
           <img src={'./dog-paw.png'} alt="Outline of dog's paw" />
           <h1>Dogs of SeatGeek</h1>
+          <img src={'./dog-paw.png'} alt="Outline of dog's paw" />
         </div>
         <div className="subHeader">
           <p>Choose the superior dog of SeatGeek, March Madness tournament-style.</p>
