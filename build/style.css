@@ -42,7 +42,7 @@ body {
   align-items: top;
 }
 
-.picker > .catImage {
+.picker > .dogImage {
   font-size: 2em;
 }
 
@@ -74,13 +74,13 @@ body {
   margin-bottom: 5px;
 }
 
-.picker > .catImage > img {
+.picker > .dogImage > img {
   margin: 0 50px 0 50px;
   outline: solid 2px white;
 }
 
 @media only screen and (min-width: 767px) {
-  .catImage > img {
+  .dogImage > img {
     width: 350px;
   }
 }

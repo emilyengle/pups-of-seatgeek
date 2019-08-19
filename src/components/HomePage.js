@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import Picker from './Picker';
+import Picker from './Picker';
 import axios from 'axios';
 
 class HomePage extends Component {
@@ -51,6 +51,7 @@ class HomePage extends Component {
           <p>Choose the superior dog of SeatGeek, March Madness tournament-style.</p>
           <p>Click a picture below to choose your favorite!</p>
         </div>
+        <Picker />
       </div>
     );
   }
