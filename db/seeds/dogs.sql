@@ -1,6 +1,9 @@
 -- db/seeds/dogs.sql
 
-CREATE TABLE IF NOT EXISTS dogs (
+DROP TABLE IF EXISTS dogs;
+
+CREATE TABLE dogs (
+  id SERIAL PRIMARY KEY UNIQUE NOT NULL,
   name VARCHAR (256) UNIQUE NOT NULL,
   owner VARCHAR (256),
   insta VARCHAR (256),
@@ -13,13 +16,14 @@ CREATE TABLE IF NOT EXISTS dogs (
   num_sweetsixteens integer
 );
 
-INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, num_finalfours, num_eliteeights, num_sweetsixteens) VALUES
+INSERT INTO dogs (id, name, owner, insta, breed, pic, num_votes, num_championships, num_finalfours, num_eliteeights, num_sweetsixteens) VALUES
   (
+    1,
     'Minnie',
     'leah f',
     'minniepibble',
     '',
-    'minnie.png',
+    'https://raw.githubusercontent.com/emilyengle/pups-of-seatgeek/master/img/minnie.png?token=ADKSDPNARSYY4DFVCNO2RCK5NUOHU',
     0,
     0,
     0,
@@ -27,11 +31,12 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    2,
     'Hank the Tank',
     'alex j',
     'the_frenchie_hank',
     '',
-    'hankthetank.jpg',
+    'https://raw.githubusercontent.com/emilyengle/pups-of-seatgeek/master/img/hankthetank.jpg?token=ADKSDPN7L3HY7D6VFHCN5NK5NUOGC',
     0,
     0,
     0,
@@ -39,11 +44,12 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    3,
     'Callie',
     'ariel w',
     '',
     '',
-    'callie.jpg',
+    'https://raw.githubusercontent.com/emilyengle/pups-of-seatgeek/master/img/callie.jpg?token=ADKSDPMU4PXMZPCC57MKFDS5NUOCG',
     0,
     0,
     0,
@@ -51,6 +57,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    4,
     'Zeke',
     'zach m',
     '',
@@ -63,6 +70,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    5,
     'Riley',
     'zach m',
     '',
@@ -75,6 +83,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    6,
     'Jasper',
     'meredith l',
     '',
@@ -87,6 +96,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    7,
     'June Bug',
     'matthew b',
     '',
@@ -99,6 +109,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    8,
     'Coco',
     'marissa m',
     '',
@@ -111,6 +122,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    9,
     'Samson',
     'michael b',
     '',
@@ -123,6 +135,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    10,
     'Lola Jane',
     'tyler d',
     '',
@@ -135,6 +148,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    11,
     'Una',
     'clay k',
     '',
@@ -147,6 +161,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    12,
     'Maximus',
     'april g',
     '',
@@ -159,6 +174,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    13,
     'Gordy',
     'deborah s',
     '',
@@ -171,6 +187,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    14,
     'Riggins',
     'sara h',
     '',
@@ -183,6 +200,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    15,
     'Leo',
     'breanna r',
     '',
@@ -195,6 +213,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    16,
     'Rudy',
     'riley e',
     '',
@@ -207,6 +226,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    17,
     'Zoe',
     'steve k',
     '',
@@ -219,11 +239,12 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    18,
     'Amma',
     'brenna t',
     'instagr.amma',
     '',
-    'amma.jpg',
+    'https://github.com/emilyengle/pups-of-seatgeek/blob/4bdc2628d7e090db8e4a344fbe7b1dcb27290514/img/amma.jpg',
     0,
     0,
     0,
@@ -231,6 +252,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    19,
     'Thor',
     'amarto r',
     '',
@@ -243,6 +265,7 @@ INSERT INTO dogs (name, owner, insta, breed, pic, num_votes, num_championships, 
     0
   ),
   (
+    20,
     'Mel',
     'ashley s',
     '',

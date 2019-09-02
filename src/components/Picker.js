@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
-import DogImage from './DogImage';
-import Contenders from './Contenders';
-import axios from 'axios';
+import React, { Component } from "react";
+import DogImage from "./DogImage";
+import Contenders from "./Contenders";
+import axios from "axios";
 
 class Picker extends Component {
   constructor(props) {
-      super(props);
+    super(props);
 
-      let shuffledDogs = this.shuffleArray(Array.from(props.dogs));
-      this.state = {
-        dogs: shuffledDogs,
-        contenders: shuffledDogs,
-        eliteEight: [],
-        finalFour: [],
-        championship: [],
-        dog1: shuffledDogs[0],
-        dog2: shuffledDogs[1]
-      };
+    /* We have 20 dogs but for bracket simplicity, only show 16 */
+    let shuffledDogs = this.shuffleArray(Array.from(props.dogs)).slice(0, 16);
+    this.state = {
+      dogs: shuffledDogs,
+      contenders: shuffledDogs,
+      eliteEight: [],
+      finalFour: [],
+      championship: [],
+      dog1: shuffledDogs[0],
+      dog2: shuffledDogs[1]
+    };
 
-      this.handleClick = this.handleClick.bind(this);
-      this.handleEliteEight = this.handleEliteEight.bind(this);
-      this.handleFinalFour = this.handleFinalFour.bind(this);
-      this.handleChampionship = this.handleChampionship.bind(this);
-      this.handleWinner = this.handleWinner.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleEliteEight = this.handleEliteEight.bind(this);
+    this.handleFinalFour = this.handleFinalFour.bind(this);
+    this.handleChampionship = this.handleChampionship.bind(this);
+    this.handleWinner = this.handleWinner.bind(this);
   }
 
   shuffleArray(dogs) {
@@ -48,7 +49,7 @@ class Picker extends Component {
 
   handleEliteEight(dog) {
     this.state.eliteEight.push(dog);
-    axios.post(`/api/dogs/${dog['id']}/elite-eight`, {id: dog['id']});
+    axios.post(`/api/dogs/${dog["id"]}/elite-eight`, { id: dog["id"] });
 
     const dogIndex = this.state.dogs.indexOf(dog);
     if (dogIndex < 14) {
@@ -69,7 +70,7 @@ class Picker extends Component {
 
   handleFinalFour(dog) {
     this.state.finalFour.push(dog);
-    axios.post(`/api/dogs/${dog['id']}/final-four`, {id: dog['id']});
+    axios.post(`/api/dogs/${dog["id"]}/final-four`, { id: dog["id"] });
 
     const dogIndex = this.state.eliteEight.indexOf(dog);
     if (dogIndex < 6) {
@@ -83,14 +84,14 @@ class Picker extends Component {
       this.setState({
         dog1: this.state.finalFour[0],
         dog2: this.state.finalFour[1],
-        contenders: shuffledFinalFour,
+        contenders: shuffledFinalFour
       });
     }
   }
 
   handleChampionship(dog) {
     this.state.championship.push(dog);
-    axios.post(`/api/dogs/${dog['id']}/championship`, {id: dog['id']});
+    axios.post(`/api/dogs/${dog["id"]}/championship`, { id: dog["id"] });
 
     const dogIndex = this.state.finalFour.indexOf(dog);
     if (dogIndex < 2) {
@@ -108,21 +109,21 @@ class Picker extends Component {
   }
 
   handleWinner(dog) {
-    axios.post(`/api/dogs/${dog['id']}/winner`, {id: dog['id']});
+    axios.post(`/api/dogs/${dog["id"]}/winner`, { id: dog["id"] });
     this.setState({
       contenders: [dog]
     });
   }
 
   render() {
-    const {dog1, dog2, contenders} = this.state;
+    const { dog1, dog2, contenders } = this.state;
     if (contenders.length == 1) {
       return (
         <div className="picker">
           <DogImage dog={contenders[0]} />
           <Contenders list={contenders} />
         </div>
-      )
+      );
     } else {
       return (
         <div className="picker">
@@ -130,7 +131,7 @@ class Picker extends Component {
           <Contenders list={contenders} />
           <DogImage dog={dog2} onClick={this.handleClick} />
         </div>
-      )
+      );
     }
   }
 }
