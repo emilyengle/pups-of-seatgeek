@@ -57,6 +57,10 @@ dogController.countSweetSixteen = (req, res) => {
     const newVoteCount = dog.num_sweetsixteens + 1;
 
     Dog.incrementSweetSixteenVote(dogId, newVoteCount);
+
+    res.status(200).json({
+      message: 'Success',
+    });
   }).catch(err => {
     console.log(err);
     res.status(500).json({err});
@@ -70,6 +74,10 @@ dogController.countEliteEight = (req, res) => {
     const newVoteCount = dog.num_eliteeights + 1;
 
     Dog.incrementEliteEightVote(dogId, newVoteCount);
+
+    res.status(200).json({
+      message: 'Success',
+    });
   }).catch(err => {
     console.log(err);
     res.status(500).json({err});
@@ -83,6 +91,10 @@ dogController.countFinalFour = (req, res) => {
     const newVoteCount = dog.num_finalfours + 1;
 
     Dog.incrementFinalFourVote(dogId, newVoteCount);
+
+    res.status(200).json({
+      message: 'Success',
+    });
   }).catch(err => {
     console.log(err);
     res.status(500).json({err});
@@ -96,6 +108,10 @@ dogController.countChampionship = (req, res) => {
     const newVoteCount = dog.num_championships + 1;
 
     Dog.incrementChampionshipVote(dogId, newVoteCount);
+
+    res.status(200).json({
+      message: 'Success',
+    });
   }).catch(err => {
     console.log(err);
     res.status(500).json({err});
@@ -109,6 +125,10 @@ dogController.countWinner = (req, res) => {
     const newVoteCount = dog.num_votes + 1;
 
     Dog.incrementWinnerVote(dogId, newVoteCount);
+
+    res.status(200).json({
+      message: 'Success',
+    });
   }).catch(err => {
     console.log(err);
     res.status(500).json({err});
