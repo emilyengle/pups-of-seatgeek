@@ -122,8 +122,10 @@ class Picker extends Component {
       return (
         <div className="picker">
           <DogImage dog={contenders[0]} />
-          <Contenders list={contenders} />
-          <Stats />
+          <div className="winnerInfo">
+            <Contenders list={contenders} />
+            <Stats winner={contenders[0]} />
+          </div>
         </div>
       );
     } else {

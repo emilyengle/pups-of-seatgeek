@@ -67,6 +67,18 @@ body {
   margin-bottom: 10px;
 }
 
+.picker > .winnerInfo > .contenders > h3 {
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.picker > .winnerInfo > .winnerStats > h3 {
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
 .picker > .contenders-16 > p {
   font-size: 1.2em;
   margin-top: 0;
@@ -74,6 +86,27 @@ body {
 }
 
 .picker > .contenders > p {
+  font-size: 1.6em;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.picker > .winnerInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.picker > .winnerInfo > .contenders > p {
+  font-size: 1.6em;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.picker > .winnerInfo > .winnerStats {
+  padding-top: 50px;
+}
+
+.picker > .winnerInfo > .winnerStats > p {
   font-size: 1.6em;
   margin-top: 0;
   margin-bottom: 5px;
