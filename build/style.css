@@ -48,7 +48,11 @@ body {
 }
 
 .picker > .contenders {
-  margin: 0 50px 0 50px;
+  margin: 0 10px 0 10px;
+}
+
+.picker > .contenders-16 {
+  margin: 0 10px 0 10px;
 }
 
 .picker > .contenders-16 > h3 {

@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import DogImage from "./DogImage";
-import Contenders from "./Contenders";
-import axios from "axios";
+import React, { Component } from 'react';
+import DogImage from './DogImage';
+import Contenders from './Contenders';
+import Stats from './Stats';
+import axios from 'axios';
 
 class Picker extends Component {
   constructor(props) {
@@ -122,6 +123,7 @@ class Picker extends Component {
         <div className="picker">
           <DogImage dog={contenders[0]} />
           <Contenders list={contenders} />
+          <Stats />
         </div>
       );
     } else {
