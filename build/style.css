@@ -79,6 +79,18 @@ body {
   margin-bottom: 10px;
 }
 
+.picker > .leaderStats > h3 {
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.picker > .leaderStats > h4 {
+  font-size: 1.6em;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
 .picker > .contenders-16 > p {
   font-size: 1.2em;
   margin-top: 0;
@@ -91,12 +103,23 @@ body {
   margin-bottom: 5px;
 }
 
+.picker > .leaderStats {
+  max-width: 30%;
+}
+
 .picker > .winnerInfo {
   display: flex;
   flex-direction: column;
+  max-width: 30%;
 }
 
 .picker > .winnerInfo > .contenders > p {
+  font-size: 1.6em;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.picker > .leaderStats > p {
   font-size: 1.6em;
   margin-top: 0;
   margin-bottom: 5px;

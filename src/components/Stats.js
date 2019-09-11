@@ -69,7 +69,7 @@ class Stats extends Component {
     }
 
     return (
-      <div class="winnerStats">
+      <div className="winnerStats">
         <h3>{winner.name}'s Stats:</h3>
         <p>🥇 Champion in {winnerPercentage}% of brackets!</p>
         <p>🥈 Final 2 in {championshipPercentage}% of brackets</p>

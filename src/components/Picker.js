@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DogImage from './DogImage';
 import Contenders from './Contenders';
+import Leaderboard from './Leaderboard';
 import Stats from './Stats';
 import axios from 'axios';
 
@@ -121,6 +122,7 @@ class Picker extends Component {
     if (contenders.length == 1) {
       return (
         <div className="picker">
+          <Leaderboard />
           <DogImage dog={contenders[0]} />
           <div className="winnerInfo">
             <Contenders list={contenders} />
