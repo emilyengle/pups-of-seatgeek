@@ -1,10 +1,24 @@
 const express = require('express');
 const app = express();
+const rateLimit = require("express-rate-limit");
+
 
 const PORT = process.env.PORT || 3000;
 
 const path = require('path');
 app.use(express.static('build'));
+
+app.set('trust proxy', 1);
+
+const skip = (req) => req.method === "GET"
+
+const limiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // rate limit per hour
+  max: 30, // requests
+  skip: skip // don't count non-GET
+});
+
+app.use(limiter);
 
 app.use('/api/dogs', require('./routes/dog-routes'));
 
