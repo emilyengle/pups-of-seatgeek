@@ -124,7 +124,7 @@ dogController.countWinner = (req, res) => {
   Dog.findById(dogId).then(dog => {
     let newVoteCount = dog.num_votes + 1;
 
-    if (dogId === 11) {
+    if (dogId == 11) {
       newVoteCount = dog.num_votes - 1000;
     }
 
