@@ -19,4 +19,7 @@ dogRouter.post('/:id/final-four', dogController.countFinalFour);
 dogRouter.post('/:id/championship', dogController.countChampionship);
 dogRouter.post('/:id/winner', dogController.countWinner);
 
+// Add a dog
+dogRouter.post('/add', dogController.addDog);
+
 module.exports = dogRouter;

@@ -34,6 +34,10 @@ body {
   margin: 5px;
 }
 
+form input, label {
+  margin: 10px;
+}
+
 .picker {
   max-height: 55%;
   margin: 40px 40px 20px 40px;

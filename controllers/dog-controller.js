@@ -1,6 +1,9 @@
 const Dog =  require('../models/dog');
+const bcrypt = require('bcrypt');
 
 const dogController = {};
+
+const hash = '$2b$10$t.I6YAfFh8K7QkkxEtYlYusfoSW/8L6M41F.VONqgnxSEvTBVq7J2';
 
 // Fetch all dogs
 dogController.findAll = (req, res) => {
@@ -132,6 +135,26 @@ dogController.countWinner = (req, res) => {
   }).catch(err => {
     console.log(err);
     res.status(500).json({err});
+  });
+};
+
+dogController.addDog = (req, res) => {
+  const {name, parent, insta, pic, password} = req.query;
+
+  bcrypt.compare(password, hash, (err, pwRes) => {
+    if (!pwRes) {
+      res.status(401).json({
+        message: 'Wrong password.'
+      })
+    } else {
+      Dog.addDog(name, parent, insta, pic).then(() => {
+        res.status(200).json({
+          message: 'Success'
+        })
+      }).catch(err => {
+        res.status(500).json({err});
+      });
+    }
   });
 };
 
