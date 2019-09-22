@@ -14,8 +14,8 @@ const skip = (req) => req.method === "GET"
 
 const limiter = rateLimit({
   windowMs: 60 * 60 * 1000, // rate limit per hour
-  max: 30, // requests
-  skip: skip // don't count non-GET
+  max: 60, // requests
+  skip: skip // don't count GET
 });
 
 app.use(limiter);
