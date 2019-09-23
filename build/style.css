@@ -55,11 +55,26 @@ form input, label {
   margin: 0 10px 0 10px;
 }
 
-.picker > .contenders-16 {
+.contenders-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.contenders-child {
   margin: 0 10px 0 10px;
 }
 
-.picker > .contenders-16 > h3 {
+.contenders-child > p {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.picker > .contenders-large {
+  margin: 0 10px 0 10px;
+}
+
+.picker > .contenders-large > h3 {
   font-size: 1.5em;
   margin-top: 0;
   margin-bottom: 10px;
@@ -95,7 +110,7 @@ form input, label {
   margin-bottom: 40px;
 }
 
-.picker > .contenders-16 > p {
+.picker > .contenders-large > p {
   font-size: 1.2em;
   margin-top: 0;
   margin-bottom: 0;

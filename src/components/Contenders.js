@@ -5,7 +5,9 @@ class Contenders extends Component {
     const {list} = this.props;
 
     let title = 'Starting Contenders:';
-    if (list.length == 8) {
+    if (list.length == 16) {
+      title = 'Your Sweet 16';
+    } else if (list.length == 8) {
       title = 'Your Elite 8';
     } else if (list.length == 4) {
       title = 'Your Final 4';
@@ -22,9 +24,15 @@ class Contenders extends Component {
     });
 
     return (
-      <div className={list.length === 16 ? 'contenders-16' : 'contenders'}>
+      <div className={list.length >= 16 ? 'contenders-large' : 'contenders'}>
         <h3>{title}</h3>
-        {contenders}
+        {list.length > 16 &&
+          <div className="contenders-container">
+            <div className="contenders-child">{contenders.slice(0, 16)}</div>
+            <div className="contenders-child">{contenders.slice(16)}</div>
+          </div>
+        }
+        {list.length <= 16 && contenders}
         {list.length === 1 ? <p>🎉🎉🎉</p> : ''}
       </div>
     )

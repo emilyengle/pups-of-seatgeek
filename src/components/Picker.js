@@ -9,11 +9,12 @@ class Picker extends Component {
   constructor(props) {
     super(props);
 
-    /* We have 20 dogs but for bracket simplicity, only show 16 */
-    let shuffledDogs = this.shuffleArray(Array.from(props.dogs)).slice(0, 16);
+    /* We have 35+ dogs but for bracket simplicity, only show 32 */
+    let shuffledDogs = this.shuffleArray(Array.from(props.dogs)).slice(0, 32);
     this.state = {
       dogs: shuffledDogs,
       contenders: shuffledDogs,
+      sweetSixteen: [],
       eliteEight: [],
       finalFour: [],
       championship: [],
@@ -22,6 +23,7 @@ class Picker extends Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleSweetSixteen = this.handleSweetSixteen.bind(this);
     this.handleEliteEight = this.handleEliteEight.bind(this);
     this.handleFinalFour = this.handleFinalFour.bind(this);
     this.handleChampionship = this.handleChampionship.bind(this);
@@ -38,7 +40,9 @@ class Picker extends Component {
   }
 
   handleClick(dog) {
-    if (this.state.eliteEight.length < 8) {
+    if (this.state.sweetSixteen.length < 16) {
+      this.handleSweetSixteen(dog);
+    } else if (this.state.eliteEight.length < 8) {
       this.handleEliteEight(dog);
     } else if (this.state.finalFour.length < 4) {
       this.handleFinalFour(dog);
@@ -49,12 +53,32 @@ class Picker extends Component {
     }
   }
 
+  handleSweetSixteen(dog) {
+    this.state.sweetSixteen.push(dog);
+
+    const dogIndex = this.state.dogs.indexOf(dog);
+    if (dogIndex < (16 * 2 - 2)) {
+      this.setState({
+        dog1: this.state.dogs[dogIndex + 1 + (dogIndex % 2 == 0 ? 1 : 0)],
+        dog2: this.state.dogs[dogIndex + 2 + (dogIndex % 2 == 0 ? 1 : 0)]
+      });
+    } else {
+      const shuffledSweetSixteen = this.shuffleArray(this.state.sweetSixteen);
+      this.state.sweetSixteen = shuffledSweetSixteen;
+      this.setState({
+        dog1: this.state.sweetSixteen[0],
+        dog2: this.state.sweetSixteen[1],
+        contenders: shuffledSweetSixteen
+      });
+    }
+  }
+
   handleEliteEight(dog) {
     this.state.eliteEight.push(dog);
     axios.post(`/api/dogs/${dog["id"]}/elite-eight`, { id: dog["id"] });
 
-    const dogIndex = this.state.dogs.indexOf(dog);
-    if (dogIndex < 14) {
+    const dogIndex = this.state.sweetSixteen.indexOf(dog);
+    if (dogIndex < (8 * 2 - 2)) {
       this.setState({
         dog1: this.state.dogs[dogIndex + 1 + (dogIndex % 2 == 0 ? 1 : 0)],
         dog2: this.state.dogs[dogIndex + 2 + (dogIndex % 2 == 0 ? 1 : 0)]
@@ -75,7 +99,7 @@ class Picker extends Component {
     axios.post(`/api/dogs/${dog["id"]}/final-four`, { id: dog["id"] });
 
     const dogIndex = this.state.eliteEight.indexOf(dog);
-    if (dogIndex < 6) {
+    if (dogIndex < (4 * 2 - 2)) {
       this.setState({
         dog1: this.state.eliteEight[dogIndex + 1 + (dogIndex % 2 == 0 ? 1 : 0)],
         dog2: this.state.eliteEight[dogIndex + 2 + (dogIndex % 2 == 0 ? 1 : 0)]
