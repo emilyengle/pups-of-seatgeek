@@ -80,8 +80,8 @@ class Picker extends Component {
     const dogIndex = this.state.sweetSixteen.indexOf(dog);
     if (dogIndex < (8 * 2 - 2)) {
       this.setState({
-        dog1: this.state.dogs[dogIndex + 1 + (dogIndex % 2 == 0 ? 1 : 0)],
-        dog2: this.state.dogs[dogIndex + 2 + (dogIndex % 2 == 0 ? 1 : 0)]
+        dog1: this.state.sweetSixteen[dogIndex + 1 + (dogIndex % 2 == 0 ? 1 : 0)],
+        dog2: this.state.sweetSixteen[dogIndex + 2 + (dogIndex % 2 == 0 ? 1 : 0)]
       });
     } else {
       const shuffledEliteEight = this.shuffleArray(this.state.eliteEight);
