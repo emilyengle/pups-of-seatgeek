@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Img from 'react-image';
+import Loader from 'react-loader-spinner';
 
 class DogImage extends Component {
   constructor(props) {
@@ -20,6 +22,10 @@ class DogImage extends Component {
     }
   }
 
+  renderLoader() {
+    return <Loader type="TailSpin" color="white" height={100} width={100} />;
+  }
+
   render() {
     const {dog} = this.props;
     const instaHandle = dog['insta'];
@@ -27,7 +33,11 @@ class DogImage extends Component {
 
     return (
       <div className="dogImage">
-        <img src={this.state.img} onClick={() => this.props.onClick(dog)} />
+        <Img
+          src={this.state.img}
+          onClick={() => this.props.onClick(dog)}
+          loader={this.renderLoader()}
+        />
         <h4><b>{this.state.imgName}</b></h4>
         <p>🍼 proud parent: {dog['owner']}</p>
         {dog['insta'] && <p>📸 insta: <a href={instaUrl} target="_blank">{'@' + instaHandle}</a></p>}
